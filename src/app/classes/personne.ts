@@ -30,4 +30,8 @@ export class Personne {
         return this._first_name + ' ' + this._last_name;
     }
 
+    toString(): string {
+        return this.name;
+    }
+
 }
