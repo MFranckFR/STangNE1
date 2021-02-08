@@ -1,9 +1,13 @@
-export class Personne {
+import IPersonne from '../interfaces/personne';
+
+export class Personne implements IPersonne {
+    static _nbInstances = 0;
+
     constructor(
-        private _num: number,
-        private _first_name: string,
-        private _last_name: string){
-            // content
+        private _num: number = 0,
+        private _first_name: string = '',
+        private _last_name: string = ''){
+            Personne._nbInstances += 1;
     }
 
     get num(){
@@ -31,7 +35,7 @@ export class Personne {
     }
 
     toString(): string {
-        return this.name;
+        return `[nbInstance:${Personne._nbInstances}] num:${this._num}: ${this.name}`;
     }
 
 }

@@ -6,16 +6,23 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './composants/home/home.component';
 import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { AdresseComponent } from './composants/adresse/adresse.component';
+import { ErrorComponent } from './composants/error/error.component';
+import { TemplateformComponent } from './composants/templateform/templateform.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     StagiaireComponent,
-    AdresseComponent
+    AdresseComponent,
+    ErrorComponent,
+    TemplateformComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,0 +1,42 @@
+<p>templateform works!</p>
+
+<div>
+    <label for="firstname">Ton nom ?</label><input type="text" placeholder="nom" #nom />
+    <button  (click)="salut(nom.value)">Test</button>
+    <p>Salut {{ result }}</p>
+</div>
+<div>
+    <label for="name2">Autre nom ?</label><input type="text" [(ngModel)]="nom2" name="nom2" placeholder="autre nom"/>
+    <button>valide</button>
+    <p>Rebonjour {{ nom2 }} </p>
+</div>
+<div>
+    <form #myForm=ngForm (ngSubmit)="ajouterPersonne()">
+
+        <div class="form-group">
+            <label for="firstname">Prénom:</label>
+            <input class="form-control" type="text" placeholder="Prénom" 
+                    name="firstname" [(ngModel)]="personne.firstName" required #firstname="ngModel" />
+            <div [hidden]="firstname.valid || firstname.pristine">
+                Le prénom est obligatoire
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname">Nom:</label>
+            <input class="form-control" type="text" placeholder="Nom" 
+                    name="lastname" [(ngModel)]="personne.lastName" required #lastname="ngModel" />
+            <div [hidden]="lastname.valid || lastname.pristine"> Le nom est obligatoire </div>
+        </div>
+        <button class="btn btn-success" [disabled]=!myForm.valid>Ajouter</button>
+    </form>
+</div>
+
+<div class="container">
+    <ul class="list-group col-sm">
+        <li class="list-group-item" *ngFor="let personne of personnes; index as i">
+            #{{ i + 1 }} {{ personne.toString() }}
+            <button type="submit" class="btn btn-danger" (click)="supprimerPersonne(personne)">supp</button>
+        </li>
+    </ul>
+</div>
