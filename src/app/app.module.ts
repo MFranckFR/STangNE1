@@ -9,6 +9,8 @@ import { AdresseComponent } from './composants/adresse/adresse.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { TemplateformComponent } from './composants/templateform/templateform.component';
 import { FormsModule } from '@angular/forms';
+import { CalculatorComponent } from './composants/calculator/calculator.component';
+import { FormComponent } from './composants/form/form.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     StagiaireComponent,
     AdresseComponent,
     ErrorComponent,
-    TemplateformComponent
+    TemplateformComponent,
+    CalculatorComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

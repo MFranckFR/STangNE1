@@ -5,6 +5,7 @@ import {AdresseComponent} from './composants/adresse/adresse.component';
 import {HomeComponent} from './composants/home/home.component';
 import {ErrorComponent} from './composants/error/error.component';
 import {TemplateformComponent} from './composants/templateform/templateform.component';
+import { CalculatorComponent } from './composants/calculator/calculator.component';
 
 const routes: Routes = [
   
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:'adresse', component: AdresseComponent},
   {path:'template-form', component:TemplateformComponent},
   {path:'error', component: ErrorComponent},
+  {path:'calculator', component: CalculatorComponent},
   {path:'', redirectTo:'/home',  pathMatch:'full'},
   {path:'**', redirectTo:'/error'}
 ];
