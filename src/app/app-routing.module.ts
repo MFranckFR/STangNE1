@@ -6,6 +6,8 @@ import {HomeComponent} from './composants/home/home.component';
 import {ErrorComponent} from './composants/error/error.component';
 import {TemplateformComponent} from './composants/templateform/templateform.component';
 import { CalculatorComponent } from './composants/calculator/calculator.component';
+import { ReactiveFormComponent } from './composants/reactive-form/reactive-form.component';
+import { TpformComponent } from './composants/tpform/tpform.component';
 
 const routes: Routes = [
   
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path:'template-form', component:TemplateformComponent},
   {path:'error', component: ErrorComponent},
   {path:'calculator', component: CalculatorComponent},
+  {path:'tpform', component: TpformComponent},
+  {path:'reactive-form', component: ReactiveFormComponent},
   {path:'', redirectTo:'/home',  pathMatch:'full'},
   {path:'**', redirectTo:'/error'}
 ];

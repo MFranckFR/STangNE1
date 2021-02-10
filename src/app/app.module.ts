@@ -8,10 +8,11 @@ import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { AdresseComponent } from './composants/adresse/adresse.component';
 import { ErrorComponent } from './composants/error/error.component';
 import { TemplateformComponent } from './composants/templateform/templateform.component';
-import { FormsModule } from '@angular/forms';
 import { CalculatorComponent } from './composants/calculator/calculator.component';
 import { FormComponent } from './composants/form/form.component';
-
+import { TpformComponent } from './composants/tpform/tpform.component';
+import { ReactiveFormComponent } from './composants/reactive-form/reactive-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,15 @@ import { FormComponent } from './composants/form/form.component';
     ErrorComponent,
     TemplateformComponent,
     CalculatorComponent,
-    FormComponent
+    FormComponent,
+    ReactiveFormComponent,
+    TpformComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

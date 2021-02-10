@@ -1,0 +1,135 @@
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>TP form</h1>
+        <p class="lead"></p>
+        <p class="lead"></p>
+        <p class="lead"></p>
+    </div>
+
+    <div class="row">
+            <div class="col-sn">
+                <form [formGroup]="personneForm" (ngSubmit)="afficherTout()">
+                    <div class="form-group">
+                        <label for="id">ID</label>
+                        <input type="number" formControlName="id"/>
+                        <div *ngIf="personneForm.controls['id'].invalid && (personneForm.controls['id'].dirty || personneForm.controls['id'].touched)"
+                        class="alert alert-danger">
+                            <span *ngIf="personneForm.controls['id'].errors?.required">L'identifiant est obligatoire </span>
+                            <span *ngIf="personneForm.controls['id'].errors?.erreur"> Doit être un nombre entier </span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" formControlName="prenom"/>
+                        <div *ngIf="personneForm.controls['prenom'].invalid && (personneForm.controls['prenom'].dirty || personneForm.controls['prenom'].touched)"
+                        class="alert alert-danger">
+                            <span *ngIf="personneForm.controls['prenom'].errors?.required">Le prénom est obligatoire </span>
+                            <span *ngIf="personneForm.controls['prenom'].errors?.erreur"> Premiere lettre en majuscule </span>
+                        </div>
+                    </div>
+
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" formControlName="nom"/>
+                            <div *ngIf="personneForm.controls['nom'].invalid && (personneForm.controls['nom'].dirty || personneForm.controls['nom'].touched)"
+                            class="alert alert-danger">
+                                <span *ngIf="personneForm.controls['nom'].errors?.required">Le nom est obligatoire </span>
+                                <span *ngIf="personneForm.controls['nom'].errors?.erreur"> Premiere lettre en majuscule </span>
+                            </div>
+                        </div>
+
+                        <div formGroupName="adresse">
+                            <h3>Adresse</h3>
+                            <div class="form-group">
+                                <label for="rue">Rue</label>
+                                <input class="form-control" formControlName="rue" type="text" placeholder="Rue" name="rue"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ville">Ville</label>
+                                <input class="form-control" formControlName="ville" type="text" placeholder="Ville" name="ville"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="codepostal">Code Postal</label>
+                                <input class="form-control" formControlName="codepostal" type="text" placeholder="Code postal" name="codepostal"/>
+                            </div>
+                        </div>
+ 
+                            <h3 style="display:contents">Commentaires</h3>
+                            <button class="btn btn-primary" (click)="ajouterCommentaire()">Ajouter Commentaire</button>
+                            
+                        <div formArrayName="commentaires">
+                            <div class="" *ngFor="let commentaire of commentaires.controls; let commentId = index;">
+                               
+                             <div class="commentaire">
+                                <div [formGroupName]="commentId">
+                                    #{{ commentId }}
+                                    <div class="form-group">
+                                        <label for="commentTitre">Titre</label>
+                                        <input class="form-control" formControlName="commentTitre" type="text" placeholder="Titre" name="commentTitre"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="categorie">Categorie</label>
+                                        <select formControlName="categorie" name='categorie'>
+                                            <option [ngValue]="null" disabled>Select categorie</option>
+                                            <option *ngFor="let categorie of categories; let catIndex=index;" [ngValue]="catIndex">{{ categorie }}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="commentTxt">Commentaire</label>
+                                        <input class="form-control" type="text" placeholder="Un commentaire" formControlName="commentTxt" name="commentTxt"/>
+                                    </div>
+                                    <button class="btn btn-danger" (click)="supprimerCommentaire(commentId)">Supprimer</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-success" type="submit" [disabled]="!personneForm.valid">Envoyer</button>
+                        <hr/>
+
+                    </form>
+            </div>
+
+
+        <div class="col-sm">
+            <div>
+                <table class="table">
+                    <thead>
+                        <th scope="col">ID</th>
+                        <th scope="col">Prénom</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Rue</th>
+                        <th scope="col">Code Postal</th>
+                        <th scope="col">Ville</th>
+                        <th scope="col">Commentaires</th>
+                    </thead>
+                    <tbody *ngFor="let personne of personnes">
+                        <tr>
+                            <td>{{ personne.id }}</td>
+                            <td>{{ personne.prenom }}</td>
+                            <td>{{ personne.nom }}</td>
+                            <td>{{ personne.adresse.rue }}</td>
+                            <td>{{ personne.adresse.codepostal }}</td>
+                            <td>{{ personne.adresse.ville }}</td>
+                            <td>
+                                <ul class="form-group" *ngFor="let commentaire of personne.commentaires; let i=index;">
+                                    <li style="background-color:gray;font-style:italic;color:white">
+                                        <p style="display:inline"><span style="color:red;">{{ categories[commentaire.categorie] }}</span> / <span style="font-weight: bold;">{{ commentaire.commentTitre }}</span></p>
+                                        <p><span class="commentTxt">{{ commentaire.commentTxt }}</span></p>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
