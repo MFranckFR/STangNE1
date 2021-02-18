@@ -22,6 +22,10 @@ const routes: Routes = [
   {path:'tpform', component: TpformComponent},
   {path:'tp2form', component: Tp2formComponent},
   {path:'reactive-form', component: ReactiveFormComponent},
+
+  // lazy loading = à la demande
+  {path:'vehicule', loadChildren:'./modules/vehicule/vehicule.module#VehiculeModule'},
+  
   {path:'', redirectTo:'/home',  pathMatch:'full'},
   {path:'**', redirectTo:'/error'}
 ];
