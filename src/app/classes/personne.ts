@@ -10,6 +10,14 @@ export class Personne implements IPersonne {
             Personne._nbInstances += 1;
     }
 
+    get id(){
+        return this._num;
+    }
+
+    set id(_num: number){
+        this._num = _num;
+    }
+
     get num(){
         return this._num;
     }
@@ -36,6 +44,12 @@ export class Personne implements IPersonne {
 
     toString(): string {
         return `[nbInstance:${Personne._nbInstances}] num:${this._num}: ${this.name}`;
+    }
+
+    loadData(data:any){
+        this.num = data.id;
+        this.lastName = data.lastName;
+        this.firstName = data.firstName;
     }
 
 }

@@ -1,0 +1,11 @@
+<h1>MAJ Personne</h1>
+
+<form #personneForm=ngForm (ngSubmit)="updatePersonne()">
+    <div>
+        <label form="firstName">Prénom:</label><input type="text" placeholder="Prénom" name="firstName" #prenom="ngModel" [(ngModel)]="personne.firstName" />
+    </div>
+    <div>
+        <label form="lastName">Nom:</label><input type="text" placeholder="Nom" name="lastName" #nom="ngModel" [(ngModel)]="personne.lastName" />
+    </div>
+    <button class="bnt btn-success" > Enregistrer </button>
+</form>

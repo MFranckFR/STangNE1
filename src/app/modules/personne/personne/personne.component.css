@@ -1,0 +1,8 @@
+.personneBox {
+    font-style:italic;
+}
+.code{ 
+    border: solid 1px;
+    border-color:black;
+    background-color: lightgray;
+}

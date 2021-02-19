@@ -1,0 +1,20 @@
+<h1>Une Personne</h1>
+
+<div class="container row">
+    <div class="personneBox col">
+        <h2>Fiche</h2>
+        <div>
+            <p><strong>NUM/ID:</strong><span>{{ personne.num }}</span>
+        </div>
+        <div>
+            <p><strong>Prénom:</strong><span>{{ personne.firstName }}</span>
+        </div>
+        <div>
+            <p><strong>Nom:</strong><span>{{ personne.lastName }}</span>
+        </div>
+    </div>
+    <div class="code col">
+        <h2>Code Json</h2>
+        <pre><code>{{ personne | json }}</code></pre>
+    </div>
+</div>

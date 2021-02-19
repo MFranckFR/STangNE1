@@ -1,5 +1,5 @@
 interface IPersonne {
-    id?: number;
+    num?: number;
     firstname?:string;
     lastname?:string;
 

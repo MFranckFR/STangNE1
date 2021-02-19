@@ -1,0 +1,44 @@
+<h1 class="">Page des personnages<h1>
+
+    <div class="container">
+        <h2>Ajout d'un nouveau personnage</h2>
+        <form #personneForm=ngForm (ngSubmit)="savePersonne()">
+            <div>
+                <label form="firstName">Prénom:</label><input type="text" placeholder="Prénom" name="firstName" #prenom="ngModel" [(ngModel)]="personne.firstName" />
+            </div>
+            <div>
+                <label form="lastName">Nom:</label><input type="text" placeholder="Nom" name="lastName" #nom="ngModel" [(ngModel)]="personne.lastName" />
+            </div>
+            <button class="bnt btn-success" > Ajouter </button>
+        </form>
+    
+        </div>
+
+<div class="container row">
+
+<div class="container col">
+    <h2>Les personnages</h2>
+    <ul *ngFor="let personne of personnes; let i = index;">
+        <li class="row">#{{ i + 1 }} <a [routerLink]="['/personne/view/', personne.id]">id:{{personne.id}} - {{ personne.firstName }} {{ personne.lastName }}</a>
+            
+            <div class="buttonsBox">
+                <button (click)="deletePersonne(personne.id)" class="btn btn-danger">
+                    DEL
+                </button>
+                <button (click)="updatePersonne(personne.id)" class="btn btn-primary">
+                    UPDT
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="col">
+    <p>Code JSON des personnes</p>
+    <pre><code>
+        {{ personnes | json }}
+        </code>
+    </pre>
+</div>
+
+</div>

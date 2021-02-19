@@ -34,6 +34,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { DragdropComponent } from './composants/dragdrop/dragdrop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { VehiculeModule } from './modules/vehicule/vehicule.module';
+import { PersonneModule } from './modules/personne/personne.module';
+import { HttpClientModule } from '@angular/common/http';
+import { UpdatePersonneComponent } from './modules/personne/update-personne/update-personne.component';
+import { PersonneComponent } from './modules/personne/personne/personne.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { VehiculeModule } from './modules/vehicule/vehicule.module';
     ReactiveFormComponent,
     TpformComponent,
     Tp2formComponent,
-    DragdropComponent
+    DragdropComponent,
+    UpdatePersonneComponent,
+    PersonneComponent
   ],
   imports: [
     BrowserModule,
@@ -77,8 +83,9 @@ import { VehiculeModule } from './modules/vehicule/vehicule.module';
     MatButtonModule,
     MatCardModule,
     DragDropModule,
-    VehiculeModule
-    
+    HttpClientModule,
+    VehiculeModule,
+    PersonneModule
   ],
   providers: [],
   bootstrap: [AppComponent]
