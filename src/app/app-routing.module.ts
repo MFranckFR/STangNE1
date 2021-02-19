@@ -26,7 +26,7 @@ const routes: Routes = [
   // lazy loading = à la demande
   {path:'vehicule', loadChildren:'./modules/vehicule/vehicule.module#VehiculeModule'},
   {path:'personne', loadChildren:'./modules/personne/personne.module#PersonneModule'},
-  
+  {path:'employe', loadChildren:'./modules/employe/employe.module#EmployeModule'},
 
   {path:'', redirectTo:'/home',  pathMatch:'full'},
   {path:'**', redirectTo:'/error'}

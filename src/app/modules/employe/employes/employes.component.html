@@ -1,0 +1,63 @@
+<h1 class="">Page des Employes<h1>
+
+
+
+<div class="container row">
+
+    <div class="container col">
+        <h2>Ajout d'un nouvel employé</h2>
+        <form #employeForm=ngForm (ngSubmit)="saveEmploye()">
+            <div>
+                <label for="name">Prénom:</label><input type="text" placeholder="Prénom" name="name" #name="ngModel" [(ngModel)]="employe.name" />
+            </div>
+            <div>
+                <label for="surname">Nom:</label><input type="text" placeholder="Nom" name="surname" #surname="ngModel" [(ngModel)]="employe.surname" />
+            </div>
+            <div>
+                <label for="surname">Age:</label><input type="text" placeholder="Age" name="age" #surname="ngModel" [(ngModel)]="employe.age" />
+            </div>
+            <div class="addresse">
+                <div>
+                    <label for="street">Street:</label><input type="text" placeholder="Adresse" name="street" #street="ngModel" [(ngModel)]="employe.address.street" />
+                </div>
+                <div>
+                    <label for="cp">Zip code:</label><input type="text" placeholder="CP" name="cp" #surname="ngModel" [(ngModel)]="employe.address.cp" />
+                </div>
+                <div>
+                    <label for="city">City:</label><input type="text" placeholder="Ville" name="city" #surname="ngModel" [(ngModel)]="employe.address.city" />
+                </div>
+
+            </div>
+            <button class="bnt btn-success" > Ajouter </button>
+        </form>
+    
+        </div>
+    
+
+    <div class="container col">
+        <h2>Les employés</h2>
+        <ul *ngFor="let employe of employes; let i = index;">
+            <li class="row">#{{ i + 1 }} <a [routerLink]="['/employe/view/', employe._id]"> - {{ employe.name }} {{ employe.surname }}</a>
+                {{employe.age}} ans
+                
+                <div class="buttonsBox">
+                    <button (click)="deleteEmploye(employe._id)" class="btn btn-danger">
+                        DEL
+                    </button>
+                    <button (click)="updateEmploye(employe._id)" class="btn btn-primary">
+                        UPDT
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <p>Code JSON des employes</p>
+        <pre><code>
+            {{ employes | json }}
+            </code>
+        </pre>
+    </div>
+
+</div>

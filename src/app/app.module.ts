@@ -38,6 +38,9 @@ import { PersonneModule } from './modules/personne/personne.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdatePersonneComponent } from './modules/personne/update-personne/update-personne.component';
 import { PersonneComponent } from './modules/personne/personne/personne.component';
+import { EmployeModule } from './modules/employe/employe.module';
+import { EmployeComponent } from './modules/employe/employe/employe.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { PersonneComponent } from './modules/personne/personne/personne.componen
     Tp2formComponent,
     DragdropComponent,
     UpdatePersonneComponent,
-    PersonneComponent
+    PersonneComponent,
+    EmployeComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +89,8 @@ import { PersonneComponent } from './modules/personne/personne/personne.componen
     DragDropModule,
     HttpClientModule,
     VehiculeModule,
-    PersonneModule
+    PersonneModule,
+    EmployeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

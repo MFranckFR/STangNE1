@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Ajout d'un nouvel employé</h2>
+    <form #employeForm=ngForm (ngSubmit)="updateEmploye()">
+        <div>
+            <label for="name">Prénom:</label><input type="text" placeholder="Prénom" name="name" #name="ngModel" [(ngModel)]="employe.name" />
+        </div>
+        <div>
+            <label for="surname">Nom:</label><input type="text" placeholder="Nom" name="surname" #surname="ngModel" [(ngModel)]="employe.surname" />
+        </div>
+        <div>
+            <label for="surname">Age:</label><input type="text" placeholder="Age" name="age" #surname="ngModel" [(ngModel)]="employe.age" />
+        </div>
+        <div class="addresse">
+            <div>
+                <label for="street">Street:</label><input type="text" placeholder="Adresse" name="street" #street="ngModel" [(ngModel)]="employe.address.street" />
+            </div>
+            <div>
+                <label for="cp">Zip code:</label><input type="text" placeholder="CP" name="cp" #surname="ngModel" [(ngModel)]="employe.address.cp" />
+            </div>
+            <div>
+                <label for="city">City:</label><input type="text" placeholder="Ville" name="city" #surname="ngModel" [(ngModel)]="employe.address.city" />
+            </div>
+
+        </div>
+        <button class="bnt btn-success" > Enregistrer </button>
+    </form>
+
+    </div>
